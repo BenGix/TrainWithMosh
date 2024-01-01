@@ -19,6 +19,7 @@ interface FetchGameResponse {
   count: number;
   results: Game[];
 }
+
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
