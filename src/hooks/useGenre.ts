@@ -6,6 +6,7 @@ import useData from "./useData";
 export interface Genre {
   id: number;
   name: string;
+  image_background: string;
 }
 
 interface FetchGenresResponse {
@@ -13,6 +14,6 @@ interface FetchGenresResponse {
   results: Genre[];
 }
 
-const useGenres = () => useData<Genre>("/genres" );
+const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;
