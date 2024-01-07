@@ -11,11 +11,22 @@ export interface Game {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
+  parent_platforms: { parent_platforms: Platform }[];
   metacritic: number;
 }
 
-const useGames = (selectedGenre: Genre | null) =>
-  useData<Game>("/games", { params: { genres: selectedGenre?.id } },[selectedGenre?.id]);
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) =>
+  useData<Game>
+  ( "/games",{
+      params: {
+        genres: selectedGenre?.id,
+        parent_platforms: selectedPlatform?.id,
+      },
+    },
+    [selectedGenre?.id, selectedPlatform?.id]
+  );
 
 export default useGames;
