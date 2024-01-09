@@ -5,15 +5,20 @@ import { CriticScore } from "./CriticScore";
 import getCroppedImageUrl from "../servieces/image-url";
 import { useColorModeValue } from "@chakra-ui/react";
 
-
 interface Props {
   game: Game;
 }
 
 export const GameCard = ({ game }: Props) => {
   const bg = useColorModeValue("gray.100", "gray.700");
+  const hoverBg = useColorModeValue("gray.200", "gray.900");
   return (
-    <Card bg={bg} height="330px">
+    <Card
+      bg={bg}
+      height="330px"
+      _hover={{ bg: hoverBg }}
+      transition="background-color 0.2s ease-in-out"
+    >
       <Image
         src={getCroppedImageUrl(game.background_image)}
         height="200px"
